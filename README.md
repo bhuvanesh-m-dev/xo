@@ -1,6 +1,4 @@
-# Tic-Tac-Toe (X and O) Game
-
-![Tic-Tac-Toe Demo](https://bhuvanesh-m-dev.github.io/xo/screenshot.png)
+# Tic-Tac-Toe (X and O)  
 
 A classic console-based Tic-Tac-Toe game implemented in C where two players can compete against each other. The game features player turn tracking, win detection, and a clean terminal interface.
 
