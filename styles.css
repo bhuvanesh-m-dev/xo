@@ -1,0 +1,352 @@
+/* styles.css */
+:root {
+    --primary: #3498db;
+    --secondary: #e74c3c;
+    --dark: #2c3e50;
+    --light: #ecf0f1;
+    --x-color: #3498db;
+    --o-color: #e74c3c;
+    --win-color: #27ae60;
+    --hover: #bdc3c7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+    color: var(--light);
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to right, var(--x-color), var(--o-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.mode-selector {
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.mode-selector button {
+    flex: 1;
+    padding: 12px 0;
+    border: none;
+    background: none;
+    color: var(--light);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.mode-selector button.active {
+    background: var(--dark);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.mode-selector button:hover:not(.active) {
+    background: var(--hover);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.player-info {
+    display: flex;
+    gap: 20px;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.player.active {
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0 0 0 3px var(--primary);
+}
+
+.player-x {
+    border: 2px solid var(--x-color);
+}
+
+.player-o {
+    border: 2px solid var(--o-color);
+}
+
+.symbol {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.player-x .symbol {
+    color: var(--x-color);
+    background: rgba(52, 152, 219, 0.2);
+}
+
+.player-o .symbol {
+    color: var(--o-color);
+    background: rgba(231, 76, 60, 0.2);
+}
+
+.name {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#status {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    min-width: 200px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.cell {
+    aspect-ratio: 1/1;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cell:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+.cell.x {
+    color: var(--x-color);
+}
+
+.cell.o {
+    color: var(--o-color);
+}
+
+.win {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(39, 174, 96, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0); }
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.btn {
+    padding: 12px 25px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.difficulty {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+
+.difficulty select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    background: var(--light);
+    font-weight: 600;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.stat {
+    text-align: center;
+    flex: 1;
+}
+
+.label {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+.value {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#xWins {
+    color: var(--x-color);
+}
+
+#oWins {
+    color: var(--o-color);
+}
+
+.instructions {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.instructions h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.instructions ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.instructions li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.instructions li:before {
+    content: "•";
+    color: var(--primary);
+    font-weight: bold;
+    position: absolute;
+    left: -20px;
+    font-size: 1.5rem;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 15px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .player {
+        padding: 8px 12px;
+    }
+    
+    .symbol {
+        font-size: 2.2rem;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .cell {
+        font-size: 2.5rem;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .controls {
+        flex-direction: column;
+    }
+}
